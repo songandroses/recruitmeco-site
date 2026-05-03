@@ -1,37 +1,269 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Recruitmeco</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recruitmeco | AI Hiring Operations Platform</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: #F7F3EF;
-      color: #2F2A26;
-      text-align: center;
-      padding: 60px;
+      background: #f7f3ef;
+      color: #2f2a26;
+    }
+    header {
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .hero {
+      padding: 90px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
     }
     h1 {
-      font-size: 40px;
+      font-size: 56px;
+      line-height: 1.05;
+      margin: 0;
+    }
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #5f554d;
     }
     .btn {
-      background: #B8A89A;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
-      text-decoration: none;
       display: inline-block;
+      background: #b8a89a;
+      color: white;
+      padding: 16px 26px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
       margin-top: 20px;
+    }
+    .card {
+      background: #efe8e1;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(47,42,38,0.08);
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .stat {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+    }
+    .stat strong {
+      display: block;
+      font-size: 28px;
+    }
+    section {
+      padding: 70px 8%;
+    }
+    h2 {
+      font-size: 38px;
+      margin-bottom: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .feature {
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 10px 30px rgba(47,42,38,0.06);
+    }
+    .feature h3 {
+      margin-top: 0;
+    }
+    .workflow {
+      background: #efe8e1;
+      border-radius: 30px;
+      padding: 40px;
+    }
+    .step {
+      background: white;
+      padding: 18px;
+      margin: 12px 0;
+      border-radius: 16px;
+    }
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .price {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(47,42,38,0.06);
+    }
+    .price strong {
+      font-size: 34px;
+    }
+    .cta {
+      text-align: center;
+      background: #2f2a26;
+      color: white;
+      border-radius: 34px;
+      margin: 70px 8%;
+      padding: 60px 30px;
+    }
+    .cta p {
+      color: #ddd2ca;
+    }
+    footer {
+      padding: 30px 8%;
+      text-align: center;
+      color: #746960;
+    }
+    @media (max-width: 800px) {
+      .hero, .grid, .pricing {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 40px;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <div class="logo">Recruitmeco</div>
+    <a href="#demo" class="btn">Book Demo</a>
+  </header>
 
-<h1>Recruitmeco</h1>
-<p>Automate your hiring operations with AI.</p>
-<p>Screen, qualify and schedule candidates — without wasting recruiter time.</p>
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Hire faster without wasting recruiter hours.</h1>
+        <p>
+          Recruitmeco is an AI-powered hiring operations platform that helps companies
+          screen, qualify and schedule candidates automatically.
+        </p>
+        <p>
+          Built for high-volume hiring teams across Switzerland, Europe and Turkey.
+        </p>
+        <a href="#demo" class="btn">Book Demo</a>
+      </div>
 
-<a href="#" class="btn">Book Demo</a>
+      <div class="card">
+        <h3>Live Hiring Pipeline</h3>
+        <p>AI screens applications and turns them into a clean shortlist.</p>
+        <div class="stats">
+          <div class="stat"><strong>248</strong>Applicants</div>
+          <div class="stat"><strong>72</strong>Qualified</div>
+          <div class="stat"><strong>31</strong>Booked</div>
+        </div>
+      </div>
+    </section>
 
+    <section>
+      <h2>The hiring problem we solve</h2>
+      <p>
+        Recruitment teams lose time on unqualified applicants, missing documents,
+        manual follow-ups, no-shows and repetitive screening calls.
+      </p>
+      <p>
+        Recruitmeco automates the first layer of hiring so recruiters can focus
+        on the candidates most likely to start and stay.
+      </p>
+    </section>
+
+    <section>
+      <h2>What Recruitmeco does</h2>
+      <div class="grid">
+        <div class="feature">
+          <h3>AI Candidate Screening</h3>
+          <p>Automatically checks language, availability, eligibility and role fit.</p>
+        </div>
+        <div class="feature">
+          <h3>Smart Scheduling</h3>
+          <p>Candidates can book interviews or onboarding slots without back-and-forth.</p>
+        </div>
+        <div class="feature">
+          <h3>Recruitment Dashboard</h3>
+          <p>Track applicants, qualified candidates, no-shows and conversion rates.</p>
+        </div>
+        <div class="feature">
+          <h3>Document Collection</h3>
+          <p>Keep candidate documents and requirements structured in one place.</p>
+        </div>
+        <div class="feature">
+          <h3>High-Volume Hiring</h3>
+          <p>Designed for companies that hire frequently and need faster filtering.</p>
+        </div>
+        <div class="feature">
+          <h3>Scalable Candidate Experience</h3>
+          <p>Give every applicant a fast, clear and professional hiring journey.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="workflow">
+        <h2>How it works</h2>
+        <div class="step">1. Candidate applies online</div>
+        <div class="step">2. AI asks screening questions</div>
+        <div class="step">3. Qualified candidates are ranked</div>
+        <div class="step">4. Interview or onboarding is booked</div>
+        <div class="step">5. HR tracks everything in one dashboard</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Pricing</h2>
+      <div class="pricing">
+        <div class="price">
+          <h3>Starter</h3>
+          <strong>CHF 490</strong>
+          <p>For small teams testing automated screening.</p>
+        </div>
+        <div class="price">
+          <h3>Growth</h3>
+          <strong>CHF 990</strong>
+          <p>For active hiring teams with recurring applicant volume.</p>
+        </div>
+        <div class="price">
+          <h3>Enterprise</h3>
+          <strong>Custom</strong>
+          <p>For multi-location teams and larger HR operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="demo">
+      <h2>See how much time your recruiters can save.</h2>
+      <p>
+        Book a short demo and discover how Recruitmeco can automate your hiring pipeline.
+      </p>
+      <a href="mailto:hello@recruitmeco.com" class="btn">Book Demo</a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Recruitmeco. AI hiring operations platform.
+  </footer>
 </body>
 </html>
