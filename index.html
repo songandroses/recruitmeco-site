@@ -172,13 +172,33 @@ footer{text-align:center;padding:36px;color:#746960}
   <h2>Let’s simplify your hiring operations.</h2>
   <p>Get a short demo and see how Recruitmeco can reduce recruiter workload.</p>
   <p><strong>Free 15-minute hiring workflow audit included.</strong></p>
- <form action="https://formspree.io/f/xojreqoy" method="POST" enctype="multipart/form-data">
-    <label>Name</label><input type="text" name="name" required>
-    <label>Email</label><input type="email" name="email" required>
-    <label>Company</label><input type="text" name="company">
-    <label>Message</label><textarea id="message" name="message" required placeholder="Tell us about your hiring needs"></textarea>
-    <button type="submit" class="btn btn-light" style="width:100%;border:none;margin-top:14px;">Send Request</button>
-  </form>
+<form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form">
+
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label>Company</label>
+    <input type="text" name="company">
+  </div>
+
+  <div class="form-group">
+    <label>Message</label>
+    <textarea name="message" placeholder="Tell us about your hiring needs"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-light" style="width:100%;margin-top:20px;">
+    Send Request
+  </button>
+
+</form>
 </section>
 <section id="careers">
   <h2>Careers at Recruitmeco</h2>
