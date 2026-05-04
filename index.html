@@ -249,8 +249,7 @@ footer{text-align:center;padding:36px;color:#746960}
   <h2>Let’s simplify your hiring operations.</h2>
   <p>Get a short demo and see how Recruitmeco can reduce recruiter workload.</p>
   <p><strong>Free 15-minute hiring workflow audit included.</strong></p>
-<form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form">
- <input type="hidden" name="_next" value="https://recruitmeco-site.vercel.app/thank-you.html">
+<form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form" onsubmit="handleSubmit(event)"> <input type="hidden" name="_next" value="https://recruitmeco-site.vercel.app/thank-you.html">
 
   <div class="form-group">
     <label>Name</label>
@@ -291,8 +290,8 @@ footer{text-align:center;padding:36px;color:#746960}
       Submit your profile and we will contact you if there is a potential match.
     </p>
 
-<form action="https://formspree.io/f/xojreqoy" method="POST" enctype="multipart/form-data" class="contact-form career-form">
-     <input type="hidden" name="_next" value="https://recruitmeco-site.vercel.app/thank-you.html">
+    <form action="https://formspree.io/f/xojreqoy" method="POST" enctype="multipart/form-data" class="contact-form career-form" onsubmit="handleSubmit(event)">
+      <input type="hidden" name="_next" value="https://recruitmeco-site.vercel.app/thank-you.html">
   <label>Name</label>
       <input type="text" name="name" required>
 
