@@ -172,7 +172,7 @@ footer{text-align:center;padding:36px;color:#746960}
   <h2>Let’s simplify your hiring operations.</h2>
   <p>Get a short demo and see how Recruitmeco can reduce recruiter workload.</p>
   <p><strong>Free 15-minute hiring workflow audit included.</strong></p>
-  <form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form">
+ <form action="https://formspree.io/f/xojreqoy" method="POST" enctype="multipart/form-data">
     <label>Name</label><input type="text" name="name" required>
     <label>Email</label><input type="email" name="email" required>
     <label>Company</label><input type="text" name="company">
@@ -187,7 +187,7 @@ footer{text-align:center;padding:36px;color:#746960}
   <div class="card">
     <h3>General Applications</h3>
     <p>You may submit a general application if your background is in recruitment operations, HR technology, business development, customer success, AI workflow design, product development or operations.</p>
-    <form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form career-form">
+   <form action="https://formspree.io/f/xojreqoy" method="POST" enctype="multipart/form-data"> <form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form career-form">
       <label>Name</label><input type="text" name="career_name" required>
       <label>Email</label><input type="email" name="career_email" required>
       <label>LinkedIn or CV Link</label><input type="text" name="cv_link" placeholder="Paste your LinkedIn or CV link">
@@ -197,6 +197,8 @@ footer{text-align:center;padding:36px;color:#746960}
 <p style="font-size:14px;color:#5F554D;">
 Please upload your CV in PDF, DOC or DOCX format.
 </p>
+      <label>Upload CV</label>
+<input type="file" name="cv_file" accept=".pdf,.doc,.docx" required>
       <label>Message</label><textarea name="career_message" placeholder="Tell us how you would like to contribute"></textarea>
       <label class="privacy-box">
         <input type="checkbox" name="privacy_consent" required>
