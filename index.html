@@ -180,32 +180,49 @@ footer{text-align:center;padding:36px;color:#746960}
     <button type="submit" class="btn btn-light" style="width:100%;border:none;margin-top:14px;">Send Request</button>
   </form>
 </section>
-
 <section id="careers">
   <h2>Careers at Recruitmeco</h2>
-  <p>Recruitmeco is growing. We do not currently have open positions, but we are always interested in hearing from people who want to contribute to the future of AI-supported recruitment operations.</p>
-  <div class="card">
-    <h3>General Applications</h3>
-    <p>You may submit a general application if your background is in recruitment operations, HR technology, business development, customer success, AI workflow design, product development or operations.</p>
-   <form action="https://formspree.io/f/xojreqoy" method="POST" enctype="multipart/form-data"> <form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form career-form">
-      <label>Name</label><input type="text" name="career_name" required>
-      <label>Email</label><input type="email" name="career_email" required>
-      <label>LinkedIn or CV Link</label><input type="text" name="cv_link" placeholder="Paste your LinkedIn or CV link">
-      <label>Upload CV</label>
-<input type="file" name="cv_file" accept=".pdf,.doc,.docx" required>
+  <p>
+    Recruitmeco is growing. While we do not currently have open positions, we are always interested in connecting with people who want to contribute to AI-supported recruitment operations.
+  </p>
 
-<p style="font-size:14px;color:#5F554D;">
-Please upload your CV in PDF, DOC or DOCX format.
-</p>
-      <label>Upload CV</label>
-<input type="file" name="cv_file" accept=".pdf,.doc,.docx" required>
-      <label>Message</label><textarea name="career_message" placeholder="Tell us how you would like to contribute"></textarea>
+  <div class="card" style="max-width:700px;margin:auto;margin-top:30px;">
+    
+    <h3>General Application</h3>
+    <p style="margin-bottom:20px;">
+      Submit your profile and we will contact you if there is a potential match.
+    </p>
+
+    <form action="https://formspree.io/f/xojreqoy" method="POST" class="contact-form career-form">
+
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>LinkedIn or CV Link</label>
+      <input type="text" name="cv_link" placeholder="Paste LinkedIn or Google Drive CV link">
+
+      <p style="font-size:13px;color:#8C8178;margin-top:6px;">
+        (You can upload your CV to Google Drive / Dropbox and paste the link here.)
+      </p>
+       <label>Message</label>
+      <textarea name="message" placeholder="Tell us how you would like to contribute"></textarea>
+      
       <label class="privacy-box">
         <input type="checkbox" name="privacy_consent" required>
-        <span>I consent to the processing of my personal data and CV for recruitment purposes, including possible sharing with trusted third-party service providers in Switzerland, the EEA and Turkey, in accordance with applicable data protection laws.</span>
-      </label>
-      <button type="submit" class="btn" style="width:100%;margin-top:18px;">Submit General Application</button>
+        <span>
+          I consent to the processing of my personal data for recruitment purposes, including possible sharing with trusted partners in Switzerland, the EEA and Turkey, in accordance with applicable data protection laws.
+        </span>
+        </label>
+
+      <button type="submit" class="btn" style="width:100%;margin-top:20px;">
+        Submit Application
+      </button>
+      
     </form>
+
   </div>
 </section>
 
