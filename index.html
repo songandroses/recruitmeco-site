@@ -57,6 +57,59 @@ footer{text-align:center;padding:36px;color:#746960}
 }
 @media(max-width:950px){header{flex-direction:column;align-items:flex-start;gap:16px;padding:16px 5%}.actions{width:100%;justify-content:space-between}nav{display:none}section{padding:56px 5%}.hero{grid-template-columns:1fr;gap:32px}h1{font-size:38px;line-height:1.08;letter-spacing:-1px}h2{font-size:30px}p{font-size:16px}.hero-buttons{flex-direction:column}.hero-buttons .btn{width:100%;text-align:center}.stats,.proof,.grid,.pricing,.value-grid{grid-template-columns:1fr}.card,.price,.template,.mini-card,.map-card{padding:22px;border-radius:22px}.map{height:280px}.marker-label{font-size:11px;padding:7px 10px}.label-ch{left:33%;top:34%}.label-eu{left:50%;top:27%}.label-tr{left:56%;top:55%}.cta{margin:48px 5%;padding:46px 22px;border-radius:28px}.contact-form input,.contact-form textarea{font-size:16px}}
 @media(max-width:480px){h1{font-size:34px}.logo-title{font-size:22px}.logo-icon{width:38px;height:38px}.lang-switch button{padding:7px 9px;font-size:12px}.btn{padding:13px 18px;font-size:14px}.dashboard{padding:20px}.stats{gap:10px}.stat strong{font-size:26px}.map{height:240px}}
+  .modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(47,42,38,.45);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal-box{
+  background:white;
+  width:100%;
+  max-width:430px;
+  border-radius:26px;
+  padding:32px;
+  position:relative;
+  box-shadow:0 30px 80px rgba(0,0,0,.18);
+}
+
+.modal-box label{
+  display:block;
+  font-weight:800;
+  margin:14px 0 6px;
+  color:var(--brown);
+}
+
+.modal-box input{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+}
+
+.modal-close{
+  position:absolute;
+  right:18px;
+  top:14px;
+  border:none;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+#google_translate_element{
+  display:none;
+}
+
+.goog-te-banner-frame,
+.goog-te-gadget{
+  display:none!important;
+}
 </style>
 </head>
 <body>
@@ -64,13 +117,31 @@ footer{text-align:center;padding:36px;color:#746960}
 <header>
   <div class="logo">
     <div class="logo-icon">R</div>
-    <div><div class="logo-title">Recruit<span>meco</span></div><div class="logo-sub">Hiring, simplified.</div></div>
+    <div>
+      <div class="logo-title">Recruit<span>meco</span></div>
+      <div class="logo-sub">Hiring, simplified.</div>
+    </div>
   </div>
+
   <nav>
-    <a href="#about">About</a><a href="#platform">Platform</a><a href="#templates">Templates</a><a href="#pricing">Pricing</a><a href="#demo">Contact</a><a href="#careers">Careers</a>
+    <a href="#about">About</a>
+    <a href="#platform">Platform</a>
+    <a href="#templates">Templates</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#demo">Contact</a>
+    <a href="#careers">Careers</a>
   </nav>
-  <a href="#" class="signin" onclick="openSignin()">Sign in</a>
- 
+
+  <div class="actions">
+    <div class="lang-switch">
+      <span style="font-size:16px;">🌐</span>
+      <button onclick="changeLanguage('en')">EN</button>
+      <button onclick="changeLanguage('de')">DE</button>
+      <button onclick="changeLanguage('tr')">TR</button>
+    </div>
+
+    <a href="#" class="signin" onclick="openSignin(event)">Sign in</a>
+  </div>
 </header>
 
 <section class="hero">
@@ -254,20 +325,65 @@ footer{text-align:center;padding:36px;color:#746960}
 </section>
 
 <footer>© 2026 Recruitmeco. AI recruiting operations platform.</footer>
+<div id="signinModal" class="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeSignin()">×</button>
 
+    <h2>Join Early Access</h2>
+    <p>Leave your details and we will contact you when Recruitmeco access becomes available.</p>
+
+    <form action="https://formspree.io/f/xojreqoy" method="POST">
+      <input type="hidden" name="form_type" value="early_access_signin">
+
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Company</label>
+      <input type="text" name="company">
+
+      <button type="submit" class="btn" style="width:100%;margin-top:18px;">
+        Request Access
+      </button>
+    </form>
+  </div>
+</div>
+
+<div id="google_translate_element"></div>
 <script>
-function setLang(lang){
-  document.querySelectorAll("[data-en]").forEach(el=>{
-    el.innerText = el.getAttribute("data-" + lang);
-  });
+function openSignin(event){
+  event.preventDefault();
+  document.getElementById("signinModal").style.display = "flex";
 }
+
+function closeSignin(){
+  document.getElementById("signinModal").style.display = "none";
+}
+
 function selectPlan(plan){
-  const message = document.getElementById("message");
+  const message = document.querySelector('textarea[name="message"]');
   if(message){
     message.value = "I am interested in the " + plan + " plan. Please contact me with more information.";
   }
 }
+
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    includedLanguages: 'en,de,tr',
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+
+function changeLanguage(lang){
+  const select = document.querySelector(".goog-te-combo");
+  if(select){
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+  }
+}
 </script>
-</body>
-</html>
-```
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
