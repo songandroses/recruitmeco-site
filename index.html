@@ -6,7 +6,7 @@
 <title>Recruitmeco | AI Recruiting Operations Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --c-black: #0A0A0A;
@@ -20,8 +20,8 @@
     --c-border-bright: rgba(0,200,150,0.3);
     --c-text-muted: rgba(255,255,255,0.45);
     --c-text-mid: rgba(255,255,255,0.72);
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    --font-body: 'Outfit', sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -517,9 +517,9 @@
     <a href="#careers">Careers</a>
     <a href="#demo" class="nav-cta">Get Demo</a>
     <div class="nav-lang">
-      <button class="active" onclick="setLang('en')">EN</button>
-      <button onclick="setLang('de')">DE</button>
-      <button onclick="setLang('tr')">TR</button>
+      <button class="active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button onclick="setLang('de')" id="btn-de">DE</button>
+      <button onclick="setLang('tr')" id="btn-tr">TR</button>
     </div>
   </div>
   <button class="nav-mobile-btn" id="mobileBtn" onclick="toggleNav()" aria-label="Menu">
@@ -816,60 +816,7 @@
       <h2 class="section-h2">Simple pricing for modern hiring</h2>
       <p class="section-sub">Start lightweight and scale as your candidate volume grows. Every plan can be adapted to your market and workflow.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-plan">Starter</div>
-        <div class="price-amount">CHF 149</div>
-        <div class="price-period">per month</div>
-        <div class="price-desc">For small teams testing structured AI-supported screening.</div>
-        <div class="price-features">
-          <div class="price-feat">Basic screening flow</div>
-          <div class="price-feat">Candidate shortlist</div>
-          <div class="price-feat">Monthly summary</div>
-        </div>
-        <a href="#demo" class="price-btn price-btn-outline">Choose Starter</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-popular">Most popular</div>
-        <div class="price-plan">Growth</div>
-        <div class="price-amount">CHF 399</div>
-        <div class="price-period">per month</div>
-        <div class="price-desc">For active hiring teams with recurring applicant volume.</div>
-        <div class="price-features">
-          <div class="price-feat">AI screening</div>
-          <div class="price-feat">Fit scoring</div>
-          <div class="price-feat">Scheduling support</div>
-          <div class="price-feat">Weekly dashboard</div>
-        </div>
-        <a href="#demo" class="price-btn price-btn-fill">Choose Growth</a>
-      </div>
-      <div class="price-card">
-        <div class="price-plan">Scale</div>
-        <div class="price-amount">CHF 799</div>
-        <div class="price-period">per month</div>
-        <div class="price-desc">For multi-location teams and larger recruitment operations.</div>
-        <div class="price-features">
-          <div class="price-feat">Multi-market workflows</div>
-          <div class="price-feat">Advanced reporting</div>
-          <div class="price-feat">Process optimisation</div>
-          <div class="price-feat">Priority support</div>
-        </div>
-        <a href="#demo" class="price-btn price-btn-outline">Choose Scale</a>
-      </div>
-      <div class="price-card">
-        <div class="price-plan">Enterprise</div>
-        <div class="price-amount">Custom</div>
-        <div class="price-period">tailored to you</div>
-        <div class="price-desc">For companies needing integrations, compliance support and custom hiring workflows.</div>
-        <div class="price-features">
-          <div class="price-feat">Custom setup</div>
-          <div class="price-feat">Integration planning</div>
-          <div class="price-feat">Compliance workflow</div>
-          <div class="price-feat">Dedicated support</div>
-        </div>
-        <a href="#demo" class="price-btn price-btn-outline">Contact Sales</a>
-      </div>
-    </div>
+    <div class="pricing-grid" id="pricingGrid"></div>
   </div>
 </section>
 
@@ -1084,43 +1031,148 @@
 </footer>
 
 <script>
-  // Mobile nav
-  function toggleNav() {
-    const links = document.getElementById('navLinks');
-    links.classList.toggle('open');
+  const i18n = {
+    en: {
+      currency: 'CHF', prices: [49, 149, 299],
+      period: 'per month', popular: 'Most popular', custom: 'Custom', customPeriod: 'tailored to you',
+      plans: ['Starter','Growth','Scale','Enterprise'],
+      descs: ['For small teams testing structured AI-supported screening.','For active hiring teams with recurring applicant volume.','For multi-location teams and larger recruitment operations.','For companies needing integrations, compliance support and custom workflows.'],
+      feats: [['Basic screening flow','Candidate shortlist','Monthly summary'],['AI screening','Fit scoring','Scheduling support','Weekly dashboard'],['Multi-market workflows','Advanced reporting','Process optimisation','Priority support'],['Custom setup','Integration planning','Compliance workflow','Dedicated support']],
+      btns: ['Choose Starter','Choose Growth','Choose Scale','Contact Sales'],
+      heroTitle: 'Automate hiring<br><em>before</em> recruiters<br>lose time.',
+      heroSub: 'Recruitmeco screens, qualifies, schedules and tracks candidates automatically — turning high-volume applications into clean, actionable hiring pipelines.',
+      heroCta1: 'Get a Free Demo', heroCta2: 'See Platform →',
+      pricingH: 'Simple pricing for modern hiring', pricingS: 'Start lightweight and scale as your candidate volume grows. Every plan can be adapted to your market and workflow.',
+      demoH: "Let's simplify your hiring", demoS: 'Get a free 15-minute hiring workflow audit and see how Recruitmeco can reduce recruiter workload from day one.',
+      demoBtn: 'Send Request', demoOk: "✓ Request sent — we'll be in touch soon!",
+      careerBtn: 'Submit Application', careerOk: '✓ Application submitted — thank you!',
+      navItems: ['About','Platform','Templates','Pricing','Blog','Careers','Get Demo'],
+      blogH: 'Insights on hiring operations', blogAll: 'All articles →',
+      howH: 'How it works', howS: 'Five steps. Zero manual screening. One clean pipeline for your recruiters.',
+      platH: 'Everything your hiring team needs'
+    },
+    de: {
+      currency: '€', prices: [45, 135, 269],
+      period: 'pro Monat', popular: 'Beliebtester Plan', custom: 'Individuell', customPeriod: 'auf Sie zugeschnitten',
+      plans: ['Starter','Growth','Scale','Enterprise'],
+      descs: ['Für kleine Teams, die KI-gestütztes Screening testen möchten.','Für aktive Recruiting-Teams mit regelmäßigem Bewerbervolumen.','Für standortübergreifende Teams und größere Recruitment-Operationen.','Für Unternehmen, die Integrationen, Compliance und individuelle Workflows benötigen.'],
+      feats: [['Basis-Screening','Kandidatenliste','Monatlicher Bericht'],['KI-Screening','Fit-Bewertung','Terminplanung','Wöchentliches Dashboard'],['Multi-Market Workflows','Erweiterte Berichte','Prozessoptimierung','Prioritäts-Support'],['Individuelle Einrichtung','Integrationsplanung','Compliance-Workflow','Dedizierter Support']],
+      btns: ['Starter wählen','Growth wählen','Scale wählen','Vertrieb kontaktieren'],
+      heroTitle: 'Recruiting automatisieren,<br><em>bevor</em> Recruiter<br>Zeit verlieren.',
+      heroSub: 'Recruitmeco screent, qualifiziert und verfolgt Kandidaten automatisch — und wandelt Massenbewerbungen in klare Hiring-Pipelines um.',
+      heroCta1: 'Demo anfragen', heroCta2: 'Plattform ansehen →',
+      pricingH: 'Einfache Preise für modernes Recruiting', pricingS: 'Starten Sie leichtgewichtig und skalieren Sie mit Ihrem Bewerbervolumen.',
+      demoH: 'Vereinfachen wir Ihr Recruiting', demoS: 'Erhalten Sie ein kostenloses 15-minütiges Hiring-Workflow-Audit.',
+      demoBtn: 'Anfrage senden', demoOk: '✓ Anfrage gesendet — wir melden uns bald!',
+      careerBtn: 'Bewerbung absenden', careerOk: '✓ Bewerbung eingegangen — vielen Dank!',
+      navItems: ['Über uns','Plattform','Vorlagen','Preise','Blog','Karriere','Demo anfragen'],
+      blogH: 'Einblicke in Recruiting-Operationen', blogAll: 'Alle Artikel →',
+      howH: 'So funktioniert es', howS: 'Fünf Schritte. Kein manuelles Screening. Eine saubere Pipeline für Ihre Recruiter.',
+      platH: 'Alles was Ihr Recruiting-Team braucht'
+    },
+    tr: {
+      currency: '₺', prices: [1490, 4490, 8990],
+      period: 'aylık', popular: 'En popüler plan', custom: 'Özel', customPeriod: 'size özel fiyatlandırma',
+      plans: ['Starter','Growth','Scale','Enterprise'],
+      descs: ['Yapılandırılmış AI destekli taramayı test eden küçük ekipler için.','Düzенли aday hacmiyle aktif işe alım ekipleri için.','Çok konumlu ekipler ve büyük işe alım operasyonları için.','Entegrasyon, uyumluluk desteği ve özel iş akışlarına ihtiyaç duyan şirketler için.'],
+      feats: [['Temel tarama akışı','Aday listesi','Aylık özet'],['AI tarama','Uyum puanı','Zamanlama desteği','Haftalık dashboard'],['Çok pazarlı iş akışları','Gelişmiş raporlama','Süreç optimizasyonu','Öncelikli destek'],['Özel kurulum','Entegrasyon planlaması','Uyumluluk iş akışı','Özel destek']],
+      btns: ["Starter'ı seç","Growth'u seç","Scale'i seç",'Satış ekibiyle iletişim'],
+      heroTitle: 'İşe alımı otomatikleştirin,<br>işe alımcılar zaman<br><em>kaybetmeden.</em>',
+      heroSub: "Recruitmeco adayları otomatik olarak tarar, niteler, planlar ve takip eder — yüksek hacimli başvuruları temiz pipeline'lara dönüştürür.",
+      heroCta1: 'Üretsiz Demo Al', heroCta2: 'Platformu Gör →',
+      pricingH: 'Modern işe alım için basit fiyatlar', pricingS: 'Hafif başlayın, aday hacminizle büyüyün. Her plan pazarla uyarlanabilir.',
+      demoH: 'İşe alımınızı birlikte basitleştirelim', demoS: "Üretsiz 15 dakikalık işe alım iş akışı denetimi alın.",
+      demoBtn: 'Talep Gönder', demoOk: '✓ Talebiniz iletildi — kısa sürede dönüş yapacağız!',
+      careerBtn: 'Başvuru Gönder', careerOk: '✓ Başvurunuz alındı — teşekkürler!',
+      navItems: ['Hakkımızda','Platform','Şablonlar','Fiyatlar','Blog','Kariyer','Demo Al'],
+      blogH: 'İşe alım operasyonları üzerine içgörüler', blogAll: 'Tüm makaleler →',
+      howH: 'Nasıl çalışır', howS: 'Beş adım. Sıfır manuel tarama. Tek temiz pipeline.',
+      platH: 'İşe alım ekibinizin ihtiyacı olan her şey'
+    }
+  };
+
+  let currentLang = 'en';
+
+  function renderPricing(t) {
+    const grid = document.getElementById('pricingGrid');
+    if (!grid) return;
+    grid.innerHTML = t.plans.map((name, i) => {
+      const featured = i === 1;
+      const isCustom = i === 3;
+      const amount = isCustom ? t.custom : (t.currency + ' ' + t.prices[i]);
+      const period = isCustom ? t.customPeriod : t.period;
+      const feats = t.feats[i].map(f => '<div class="price-feat">' + f + '</div>').join('');
+      return '<div class="price-card' + (featured ? ' featured' : '') + '">'
+        + (featured ? '<div class="price-popular">' + t.popular + '</div>' : '')
+        + '<div class="price-plan">' + name + '</div>'
+        + '<div class="price-amount">' + amount + '</div>'
+        + '<div class="price-period">' + period + '</div>'
+        + '<div class="price-desc">' + t.descs[i] + '</div>'
+        + '<div class="price-features">' + feats + '</div>'
+        + '<a href="#demo" class="price-btn ' + (featured ? 'price-btn-fill' : 'price-btn-outline') + '">' + t.btns[i] + '</a>'
+        + '</div>';
+    }).join('');
   }
 
-  // Language switcher (placeholder — extend with i18n as needed)
+  function applyLang(t) {
+    const q = (sel) => document.querySelector(sel);
+    const h1 = q('.hero-h1'); if (h1) h1.innerHTML = t.heroTitle;
+    const hs = q('.hero-sub'); if (hs) hs.textContent = t.heroSub;
+    const ctas = document.querySelectorAll('.hero-actions a');
+    if (ctas[0]) ctas[0].textContent = t.heroCta1;
+    if (ctas[1]) ctas[1].textContent = t.heroCta2;
+    const ph = q('#pricing .section-h2'); if (ph) ph.textContent = t.pricingH;
+    const ps = q('#pricing .section-sub'); if (ps) ps.textContent = t.pricingS;
+    const dh = q('#demo .section-h2'); if (dh) dh.textContent = t.demoH;
+    const ds = q('#demo .section-sub'); if (ds) ds.textContent = t.demoS;
+    const db = document.getElementById('demoBtn'); if (db && !db.disabled) db.textContent = t.demoBtn;
+    const cb = document.getElementById('careerBtn'); if (cb && !cb.disabled) cb.textContent = t.careerBtn;
+    const howH = q('#how .section-h2'); if (howH) howH.textContent = t.howH;
+    const howS = q('#how .section-sub'); if (howS) howS.textContent = t.howS;
+    const platH = q('#platform .section-h2'); if (platH) platH.textContent = t.platH;
+    const blogH = q('#blog .section-h2'); if (blogH) blogH.textContent = t.blogH;
+    const blogA = q('.blog-link'); if (blogA) blogA.textContent = t.blogAll;
+    const navA = document.querySelectorAll('.nav-links a[href^="#"]');
+    navA.forEach((a, i) => { if (t.navItems[i]) a.textContent = t.navItems[i]; });
+    const navCta = q('.nav-links a.nav-cta');
+    if (navCta) navCta.textContent = t.navItems[6] || t.navItems[t.navItems.length - 1];
+  }
+
   function setLang(lang) {
+    currentLang = lang;
     document.querySelectorAll('.nav-lang button').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.nav-lang button[onclick="setLang('${lang}')"]`).classList.add('active');
+    const btn = document.getElementById('btn-' + lang);
+    if (btn) btn.classList.add('active');
+    const t = i18n[lang];
+    renderPricing(t);
+    applyLang(t);
   }
 
-  // Demo form
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
   function handleDemo(e) {
     e.preventDefault();
     const btn = document.getElementById('demoBtn');
-    btn.textContent = '✓ Request sent — we\'ll be in touch soon!';
+    btn.textContent = i18n[currentLang].demoOk;
     btn.style.background = '#009A75';
     btn.disabled = true;
     e.target.reset();
   }
 
-  // Career form
   function handleCareer(e) {
     e.preventDefault();
     const btn = document.getElementById('careerBtn');
-    btn.textContent = '✓ Application submitted — thank you!';
+    btn.textContent = i18n[currentLang].careerOk;
     btn.style.background = '#009A75';
     btn.disabled = true;
     e.target.reset();
   }
 
-  // Animate live pipeline numbers
   let apps = 248, qual = 72, book = 31;
   setInterval(() => {
-    const delta = Math.random() > 0.5 ? 1 : 0;
-    if (delta && Math.random() > 0.7) {
+    if (Math.random() > 0.7) {
       apps += 1;
       if (Math.random() > 0.6) qual += 1;
       if (Math.random() > 0.7) book += 1;
@@ -1130,18 +1182,15 @@
     }
   }, 3000);
 
-  // Scroll-based nav active state
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--c-white)' : '';
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--c-white)' : ''; });
   });
+
+  renderPricing(i18n.en);
 </script>
 </body>
 </html>
