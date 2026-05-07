@@ -8,18 +8,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --c-black: #0A0A0A;
-    --c-white: #FAFAF7;
-    --c-accent: #00C896;
-    --c-accent-dim: #00C89618;
-    --c-accent-dark: #009A75;
-    --c-mid: #1A1A1A;
-    --c-surface: #111111;
-    --c-border: rgba(255,255,255,0.08);
-    --c-border-bright: rgba(0,200,150,0.3);
-    --c-text-muted: rgba(255,255,255,0.45);
-    --c-text-mid: rgba(255,255,255,0.72);
+:root {
+  --c-black: #ffffff;
+  --c-white: #0D0D0D;
+  --c-accent: #00C896;
+  --c-accent-dim: #00C89618;
+  --c-accent-dark: #009A75;
+  --c-mid: #f0f0f0;
+  --c-surface: #f5f5f5;
+  --c-border: rgba(0,0,0,0.10);
+  --c-border-bright: rgba(0,200,150,0.4);
+  --c-text-muted: rgba(0,0,0,0.45);
+  --c-text-mid: rgba(0,0,0,0.70);
     --font-display: 'Outfit', sans-serif;
     --font-body: 'Outfit', sans-serif;
   }
@@ -37,11 +37,11 @@
   img { max-width: 100%; display: block; }
 
   /* ─── NAV ─── */
-  nav {
+  nav {background: rgba(255,255,255,0.92);
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 48px; height: 68px;
-    background: rgba(10,10,10,0.85);
+   background: rgba(255,255,255,0.92);
     backdrop-filter: blur(16px);
     border-bottom: 0.5px solid var(--c-border);
   }
@@ -456,8 +456,8 @@
   /* ─── BG GRID ─── */
   .bg-grid {
     position: absolute; inset: 0; pointer-events: none; z-index: 0;
-    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 100%);
   }
