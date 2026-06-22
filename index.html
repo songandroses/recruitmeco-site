@@ -238,10 +238,10 @@
   .trust-logos { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
   .trust-logo {
     font-family: var(--font-display); font-size: 13px; font-weight: 700;
-    color: rgba(255,255,255,0.2); letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(0,0,0,0.2); letter-spacing: 0.08em; text-transform: uppercase;
     transition: color 0.2s;
   }
-  .trust-logo:hover { color: rgba(255,255,255,0.5); }
+  .trust-logo:hover { color: rgba(0,0,0,0.5); }
 
   /* ─── HOW IT WORKS ─── */
   #how { background: var(--c-surface); }
@@ -250,10 +250,10 @@
     background: var(--c-surface); padding: 28px 22px;
     position: relative; transition: background 0.2s;
   }
-  .step-item:hover { background: #161616; }
+  .step-item:hover { background: #ececec; }
   .step-num {
     font-family: var(--font-display); font-size: 40px; font-weight: 800;
-    color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: 20px;
+    color: rgba(0,0,0,0.06); line-height: 1; margin-bottom: 20px;
   }
   .step-icon {
     width: 36px; height: 36px; border-radius: 8px;
@@ -272,7 +272,7 @@
     background: var(--c-black); padding: 32px;
     transition: background 0.2s;
   }
-  .service-card:hover { background: #0E0E0E; }
+  .service-card:hover { background: #fafafa; }
   .service-num { font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--c-accent); letter-spacing: 0.1em; margin-bottom: 20px; }
   .service-icon { font-size: 24px; margin-bottom: 14px; }
   .service-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
@@ -334,7 +334,7 @@
     display: flex; flex-direction: column;
     transition: border-color 0.2s;
   }
-  .price-card:hover { border-color: rgba(255,255,255,0.15); }
+  .price-card:hover { border-color: rgba(0,0,0,0.15); }
   .price-card.featured {
     border-color: var(--c-accent);
     background: rgba(0,200,150,0.04);
@@ -367,7 +367,7 @@
     border: 0.5px solid var(--c-border); color: var(--c-text-mid);
     background: none;
   }
-  .price-btn-outline:hover { border-color: rgba(255,255,255,0.3); color: var(--c-white); }
+  .price-btn-outline:hover { border-color: rgba(0,0,0,0.3); color: var(--c-white); }
   .price-btn-fill {
     background: var(--c-accent); color: var(--c-black); border: none;
   }
@@ -428,7 +428,7 @@
   .contact-note {
     margin-top: 28px; background: var(--c-accent-dim);
     border: 0.5px solid var(--c-border-bright); border-radius: 10px; padding: 16px 18px;
-    font-size: 13px; color: var(--c-accent); line-height: 1.5;
+    font-size: 13px; color: var(--c-accent-dark); line-height: 1.5;
   }
 
   /* ─── CAREERS ─── */
@@ -1016,9 +1016,9 @@
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Pricing</div>
-          <a href="#pricing">Starter — CHF 149</a>
-          <a href="#pricing">Growth — CHF 399</a>
-          <a href="#pricing">Scale — CHF 799</a>
+          <a href="#pricing">Starter — CHF 49</a>
+          <a href="#pricing">Growth — CHF 149</a>
+          <a href="#pricing">Scale — CHF 299</a>
           <a href="#pricing">Enterprise</a>
         </div>
       </div>
@@ -1074,14 +1074,14 @@
       currency: '₺', prices: [1490, 4490, 8990],
       period: 'aylık', popular: 'En popüler plan', custom: 'Özel', customPeriod: 'size özel fiyatlandırma',
       plans: ['Starter','Growth','Scale','Enterprise'],
-      descs: ['Yapılandırılmış AI destekli taramayı test eden küçük ekipler için.','Düzенли aday hacmiyle aktif işe alım ekipleri için.','Çok konumlu ekipler ve büyük işe alım operasyonları için.','Entegrasyon, uyumluluk desteği ve özel iş akışlarına ihtiyaç duyan şirketler için.'],
+      descs: ['Yapılandırılmış AI destekli taramayı test eden küçük ekipler için.','Düzenli aday hacmiyle aktif işe alım ekipleri için.','Çok konumlu ekipler ve büyük işe alım operasyonları için.','Entegrasyon, uyumluluk desteği ve özel iş akışlarına ihtiyaç duyan şirketler için.'],
       feats: [['Temel tarama akışı','Aday listesi','Aylık özet'],['AI tarama','Uyum puanı','Zamanlama desteği','Haftalık dashboard'],['Çok pazarlı iş akışları','Gelişmiş raporlama','Süreç optimizasyonu','Öncelikli destek'],['Özel kurulum','Entegrasyon planlaması','Uyumluluk iş akışı','Özel destek']],
       btns: ["Starter'ı seç","Growth'u seç","Scale'i seç",'Satış ekibiyle iletişim'],
       heroTitle: 'İşe alımı otomatikleştirin,<br>işe alımcılar zaman<br><em>kaybetmeden.</em>',
       heroSub: "Recruitmeco adayları otomatik olarak tarar, niteler, planlar ve takip eder — yüksek hacimli başvuruları temiz pipeline'lara dönüştürür.",
-      heroCta1: 'Üretsiz Demo Al', heroCta2: 'Platformu Gör →',
+      heroCta1: 'Ücretsiz Demo Al', heroCta2: 'Platformu Gör →',
       pricingH: 'Modern işe alım için basit fiyatlar', pricingS: 'Hafif başlayın, aday hacminizle büyüyün. Her plan pazarla uyarlanabilir.',
-      demoH: 'İşe alımınızı birlikte basitleştirelim', demoS: "Üretsiz 15 dakikalık işe alım iş akışı denetimi alın.",
+      demoH: 'İşe alımınızı birlikte basitleştirelim', demoS: "Ücretsiz 15 dakikalık işe alım iş akışı denetimi alın.",
       demoBtn: 'Talep Gönder', demoOk: '✓ Talebiniz iletildi — kısa sürede dönüş yapacağız!',
       careerBtn: 'Başvuru Gönder', careerOk: '✓ Başvurunuz alındı — teşekkürler!',
       navItems: ['Hakkımızda','Platform','Şablonlar','Fiyatlar','Blog','Kariyer','Demo Al'],
